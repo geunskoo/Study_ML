@@ -59,9 +59,9 @@ plt.show()
 ```
 
 
-    
-![png](output_9_0.png)
-    
+​    
+![output_9_0](https://user-images.githubusercontent.com/97498405/157443343-2c8ea896-4487-4f77-a3e4-bd85a0f97bc3.png)
+​    
 
 
 ## 분류 알고리즘 구현(KNeighborsClassifier)
@@ -113,7 +113,7 @@ else:
     
     25 150
     빙어 입니다!
-    
+
 
 
 ```python
@@ -143,7 +143,7 @@ print(35/49)
 
     0.7142857142857143
     0.7142857142857143
-    
+
 
 ***그런데 학습한 데이터로 성능 평가하는 것이 맞는 것 일까?***
 
