@@ -149,9 +149,44 @@ print(knr.score(test_data,test_target))
 
 훈련 세트의 결정계수는 다소 증가하였고, 테스트 세트의 결정계수는 다소 감소하였다 !
 
-continue....
-
+## 1.5 평가!
 
 ```python
+# 농어 50cm / 1.5kg 을 제대로 예측할 수 있을까 ?
+
+fish_weight = knr.predict([[50]])
+print(int(fish_weight)/1000,'Kg 입니다!')
+```
 
 ```
+1.033 Kg 입니다!
+```
+
+1.5 kg의 아주 실한 농어 인데, 무게의 1/3이 사라졌다 ?!
+
+
+
+### 1.5.1 오류 찾기
+
+```python
+# 예측값에 사용된 이웃 데이터 정보구하기
+distances, indexes = knr.kneighbors([[50]])
+
+
+# 훈련데이터
+plt.scatter(train_data,train_target)
+# 사용된 이웃 데이터 3개
+plt.scatter(train_data[indexes],train_target[indexes],marker='D')
+
+# 예측된 값.
+plt.scatter(50,1033,marker='^')
+plt.show()
+```
+
+![output_27_0](https://user-images.githubusercontent.com/97498405/157841206-07d7cfe8-0705-4d40-8d17-dd73b0a6faf7.png)
+
+이웃한 데이터를 참고 하기 때문에 이웃한 데이터보다 큰 길이를 가진 농어라 하더라도
+
+무게는 1033g에서 늘지 않는다..!
+
+..다른 방법은 없을까 ?!
